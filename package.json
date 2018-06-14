@@ -1,12 +1,14 @@
 {
   "name": "time-tracker",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Extended Weekend Project - Time Tracker",
+  "main": "server/server.js",
   "dependencies": {
     "angular": "^1.7.2",
+    "angular-route": "^1.7.2",
     "body-parser": "^1.18.3",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "pg": "^7.4.3"
   },
   "devDependencies": {},
   "scripts": {
@@ -18,7 +20,7 @@
     "url": "git+https://github.com/johnnypackard/time-tracker.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Johnny Packard",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/johnnypackard/time-tracker/issues"
