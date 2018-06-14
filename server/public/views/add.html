@@ -1,0 +1,30 @@
+<div ng-app="AddController as ac">
+    <h2>Add Entry</h2>
+    <form ng-submit="ac.entryAdd()">
+        <input type="text" ng-model="ac.newEntry.entry" placeholder="What did you do?">
+        <input type="text" ng-model="ac.newEntry.project" placeholder="Project">
+        <input type="date" ng-model="ac.newEntry.date" placeholder="Date">
+        <input type="time" ng-model="ac.newEntry.startTime" placeholder="Start Time">
+        <input type="time" ng-model="ac.newEntry.endTime" placeholder="End Time">
+        <input type="submit"/>
+    </form>
+    <div>
+        <h2>History</h2>
+        <table>
+            <thead>
+                <td>Entry</td>
+                <td>Project</td>
+                <td>Date</td>
+                <td>Hours</td>
+                <td>Actions</td>
+            </thead>
+            <tr ng-repeat="entry in ac.entries">
+                <td>{{entry.entry}}</td>
+                <td>{{entry.project}}</td>
+                <td>{{entry.date}}</td>
+                <td>{{entry.totalTime}}</td>
+                <td><button ng-click="ac.deleteEntry(entry)">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+</div>

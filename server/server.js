@@ -1,8 +1,8 @@
 // Requires
 const express = require( 'express' );
 const app = express();
-const entryAdd = require( './routes/add.router' );
-const projectManager = require( './routes/manage.router' );
+const entry = require( './routes/add.router' );
+const project = require( './routes/manage.router' );
 const reportsView = require( './routes/reports.router' );
 const port = process.env.PORT || 5000;
 

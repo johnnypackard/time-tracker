@@ -1,0 +1,27 @@
+<div ng-controller="ManageController as mc">
+    <h2>Add Project</h2>
+    <form ng-submit="mc.projectManager()">
+        <input type="text" ng-model="mc.addNewProject">
+        <input type="number" ng-model="mc.addProjectAllotedTime">
+        <input type="submit"/>
+    </form>
+    <div>
+        <h2>Projects</h2>
+        <table>
+            <thead>
+                <td>Project</td>
+                <td>Total Projected Hours</td>
+                <td>Actual Total Hours</td>
+                <td>Time Variance</td>
+                <td>Actions</td>
+            </thead>
+            <tr ng-repeat="project in mc.projects">
+                <td>{{project.project}}</td>
+                <td>{{project.totalProjected}}</td>
+                <td>{{project.totalActual}}</td>
+                <td>{{project.totalVariance}}</td>
+                <td><button ng-click="mc.deleteProject(project)">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
