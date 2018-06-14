@@ -1,6 +1,3 @@
-# time-tracker
-
-# PostgreSQL queries to create tables
 CREATE TABLE "entries" (
     id SERIAL PRIMARY KEY,
     entry VARCHAR(100) NOT NULL,
