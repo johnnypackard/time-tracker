@@ -1,4 +1,4 @@
-TrackerApp.service( 'TrackerService', [ $http, function( $http ) {
+app.service( 'TrackerService', function( $http ) {
     console.log( 'TrackerApp.Service loaded' );
     
     let self = this;
@@ -71,4 +71,4 @@ TrackerApp.service( 'TrackerService', [ $http, function( $http ) {
     }; // end deleteProject
 
     self.getProjects();
-}])
+});

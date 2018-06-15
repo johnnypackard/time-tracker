@@ -1,6 +1,6 @@
 const pg = require( 'pg' );
 const Pool = pg.Pool;
-const pool = new Pool( config );
+
 const config = {
     database: 'time_tracker',
     host: 'localhost',
@@ -8,6 +8,7 @@ const config = {
     max: 10,
     idleTimeoutMillis: 30000
 };
+const pool = new Pool( config );
 
 pool.on('connect', ( client ) => {
     console.log( 'postgreSQL connected' );

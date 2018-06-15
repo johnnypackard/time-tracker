@@ -16,10 +16,10 @@
                 <td>Actions</td>
             </thead>
             <tr ng-repeat="project in mc.projects">
-                <td>{{project.project}}</td>
-                <td>{{project.totalProjected}}</td>
-                <td>{{project.totalActual}}</td>
-                <td>{{project.totalVariance}}</td>
+                <td>{{project.project_id}}</td>
+                <td>{{project.projected_hours}}</td>
+                <td>{{project.actual_time}}</td>
+                <td>{{project.time_variance}}</td>
                 <td><button ng-click="mc.deleteProject(project)">Delete</button></td>
             </tr>
         </table>
