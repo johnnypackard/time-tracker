@@ -69,5 +69,6 @@ TrackerApp.service( 'TrackerService', [ $http, function( $http ) {
         };
         
     }; // end deleteProject
-    
+
+    self.getProjects();
 }])

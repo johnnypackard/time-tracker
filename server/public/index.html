@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Time Tracker</title>
+    <!-- Angular Material Stylesheet -->
+    <link rel="stylesheet" href="vendors/angular-material.css">
+    <!-- Global required scripts -->
     <script src="vendors/angular.js"></script>
     <script src="vendors/angular-route.js"></script>
+    <!-- Angular Material requires: -->
+    <script src="vendors/angular-animate.js"></script>
+    <script src="vendors/angular-aria.js"></script>
+    <script src="vendors/angular-messages.js"></script>
+    <script src="vendors/angular-material.js"></script>
     <script src="scripts/client.js"></script>
-    <link rel="stylesheet" href="styles/style.css">
-    <title>Time Tracker</title>
+    <!-- Controllers -->
+    <script src="scripts/controllers/add.controller.js"></script>
+    <script src="scripts/controllers/manage.controller.js"></script>
+    <script src="scripts/controllers/reports.controller.js"></script>
+    <!-- Services -->
+    <script src="scripts/services/tracker.service.js"></script>
+     <!-- Other styles -->
+     <link rel="stylesheet" href="styles/style.css">
+
 </head>
 <body ng-app="TrackerApp">
     <a href="#!">Add Entry</a>
