@@ -1,7 +1,7 @@
-<container>
-    <h2>Add Entry</h2>
+<h2>Add Entry</h2>
     
-    <div ng-app="AddController as ac" id="addTable" class="table">
+<container>
+    <div ng-controller="AddController as ac" id="addTable" class="table">
         <form ng-submit="ac.entryAdd()">
             <input type="text" ng-model="ac.newEntry.entry" placeholder="What did you do?">
             <input type="text" ng-model="ac.newEntry.project" placeholder="Project">

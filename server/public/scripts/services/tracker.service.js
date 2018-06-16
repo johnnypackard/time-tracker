@@ -8,7 +8,7 @@ app.service( 'TrackerService', function( $http ) {
         console.log( 'in GET service' );
         return $http({
             method: 'GET',
-            url: `${url}`
+            url: `/${url}`
         }).then( ( response ) => {
             console.log( response );
             console.log( `${url}` );
@@ -21,31 +21,31 @@ app.service( 'TrackerService', function( $http ) {
     self.postEntry = function( url ) {
         return $http({
             method: 'POST',
-            url: `${url}`,
+            url: `/${url}`,
             data: self.newEntry
         }).then( ( response ) => {
-            console.log( 'back from POST with:', response );
+            console.log( 'back from POST entry with:', response );
         }).catch( ( error ) => {
-            console.log( 'error in POST:', error );
+            console.log( 'error in POST entry:', error );
         });
     }; // end post Entry
 
     self.postProject = function( url ) {
         return $http({
             method: 'POST',
-            url: `${url}`,
+            url: `/${url}`,
             data: self.newProject
         }).then( ( response ) => {
-            console.log( 'back from POST with:', response );
+            console.log( 'back from POST project with:', response );
         }).catch( ( error ) => {
-            console.log( 'error in POST:', error );
+            console.log( 'error in POST project:', error );
         });
     }; // end post Project
 
     self.updateProject = function( url ) {
         return $http({
             method: 'PUT',
-            url: `${url}`,
+            url: `/${url}`,
             data: self.req.params
         }).then( ( response ) => {
             console.log( 'back from POST with:', req.params );
