@@ -9,7 +9,7 @@ router.get( '/', function( req, res ) {
             res.sendStatus( 500 );
         } else {
             client.query( 'SELECT * FROM entries ORDER BY id;', function( errorMakingDatabaseQuery, result ) {
-                done();
+                pool.query( queryText )
                 if ( errorMakingDatabaseQuery ) {
                     console.log( 'error', errorMakingDatabaseQuery );
                     res.sendStatus( 500 );
@@ -23,18 +23,19 @@ router.get( '/', function( req, res ) {
 
 router.post( '/', ( req, res ) => {
     console.log( 'in add.router POST ', req.body );
-    let newEntry = req.body;
+    let newEntry = req.body.newEntry;
     const queryText = `INSERT INTO entries ("entry", "project", "date", startTime", "endTime")
     VALUES ($1, $2, $3, $4, $5);`;
-    pool.query( queryText, [newEntry.entry, newEntry.project, newEntry.date, newEntry.startTime, newEntry.endTime])
+    pool.query( queryText, [ newEntry ] )
     .then( ( result ) => {
         console.log( 'successfully added newEntry', req.body );
         res.sendStatus( 201 )
     })
     .catch( ( error ) => {
+        console.log( 'error in add.router POST', error );
         res.sendStatus( 500 );
-    });
-}); // end POST
+    })
+}) // end POST
 
 router.put( '/', ( req, res ) => {
     const entryId = req.params.id;
