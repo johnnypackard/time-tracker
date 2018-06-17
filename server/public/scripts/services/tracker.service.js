@@ -1,5 +1,5 @@
-app.service( 'TrackerService',  ['$http', function( $http ) {
-    console.log( 'TrackerApp.Service loaded' );
+app.service( 'TrackerService',  ['$http', '$mdDialog', '$mdToast', function( $http, $mdDialog, $mdToast ) {
+    console.log( 'TrackerService loaded' );
     
     let self = this;
     self.projectsArray = { list: [] };
