@@ -1,27 +1,21 @@
-<h2>Add Project</h2>
-<div ng-controller="ManageController as mc">
-    <form ng-submit="mc.projectManager()">
-        <input type="text" ng-model="mc.addNewProject">
-        <input type="number" ng-model="mc.addProjectAllotedTime">
-        <input type="submit"/>
-    </form>
-    <div>
-        <h2>Projects</h2>
-        <table>
-            <thead>
-                <td>Project</td>
-                <td>Total Projected Hours</td>
-                <td>Actual Total Hours</td>
-                <td>Time Variance</td>
-                <td>Actions</td>
-            </thead>
-            <tr ng-repeat="project in mc.projects">
-                <td>{{project.project_id}}</td>
-                <td>{{project.projected_hours}}</td>
-                <td>{{project.actual_time}}</td>
-                <td>{{project.time_variance}}</td>
-                <td><button ng-click="mc.deleteProject(project)">Delete</button></td>
-            </tr>
-        </table>
-    </div>
-</div>
+<md-content class="viewContent" flex layout-padding>
+    <h1>Manage Projects</h1>
+    <table>
+        <thead>
+            <th>Project</th>
+            <th>Total Projected Hours</th>
+            <th>Actual Total Hours</th>
+            <th>Time Variance</th>
+            <th></th>
+            <tbody ng-repeat="project in vm.projects.list">
+                <tr>
+                    <td>{{project.project_id}}</td>
+                    <td>{{project.projected_hours}}</td>
+                    <td>{{project.actual_time}}</td>
+                    <td>{{project.time_variance}}</td>
+                    <td><md-button class="md-warn md-secondary" ng-click="vm.deleteProject(project.project_id, $event)">Delete Project</md-button></td>
+                </tr>
+            </tbody>
+        </thead>
+    </table>
+</md-content>

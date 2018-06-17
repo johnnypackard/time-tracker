@@ -1,0 +1,21 @@
+<md-content class="viewContent">
+    <h1>All Projects</h1>
+    <table>
+            <thead>
+                <td>Entry</td>
+                <td>Project</td>
+                <td>Date</td>
+                <td>Hours</td>
+                <td>Actions</td>
+            </thead>
+            <tbody ng-repeat="entry in vm.entries.list">
+                <tr>
+                    <td>{{entry.entry}}</td>
+                    <td>{{entry.project}}</td>
+                    <td>{{entry.date}}</td>
+                    <td>{{entry.totalTime}}</td>
+                    <td><md-button class="md-warn" ng-click="vm.deleteEntry(entry.entry_id)">Delete</md-button></td>
+                </tr>
+            </tbody>
+        </table>
+</md-content>

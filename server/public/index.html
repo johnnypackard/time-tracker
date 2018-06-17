@@ -27,9 +27,27 @@
 
 </head>
 <body ng-app="TrackerApp">
-    <a href="#!">Add Entry</a>
-    <a href="#!manage">Manage Projects</a>
-    <a href="#!reports">Reports</a>
+    <div class="nav">
+    <ul>
+        <li>
+            <md-button ng-href="#!/homepage">All Projects</md-button>
+        </li>
+        <li>
+            <md-button ng-href="#!/add">Time Tracker</md-button>
+        </li>
+        <li>
+            <md-button ng-href="#!/manage">Manage Projects</md-button>
+        </li>
+        <li>
+            <md-button ng-href="#!/reports">Reports</md-button>
+        </li>
+       
+    </div>
+    <div ng-include=" 'views/templates/inputs.html' ">
+    </div>
     <ng-view></ng-view>
+    <footer>
+        <div id="footerDiv"></div>
+    </footer>
 </body>
 </html>

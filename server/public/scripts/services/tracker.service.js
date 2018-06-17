@@ -3,21 +3,24 @@ app.service( 'TrackerService',  ['$http', '$mdDialog', '$mdToast', function( $ht
     
     let self = this;
     self.projectsArray = { list: [] };
+    self.fullTable = { list: [] };
+    self.editObject = { list: [] };
 
-    self.getProjects = function( url ) {
+    // GET for /manage
+    self.getProjects = function() {
         console.log( 'in GET service' );
-        return $http({
+        $http({
             method: 'GET',
-            url: `/${url}`
+            url: ('/manage')
         }).then( ( response ) => {
             console.log( response );
-            console.log( `${url}` );
-            self.projectsArray = response.data;
+            self.projectsArray.list = response.data;
         }).catch( ( error ) => {
             console.log( 'error in getProjects:', error );
-        });
-    };
+        })
+    } // end GET for /manage
 
+    // POST for /add
     self.postEntry = function( url ) {
         return $http({
             method: 'POST',

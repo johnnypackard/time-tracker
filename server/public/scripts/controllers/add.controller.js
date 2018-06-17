@@ -1,5 +1,5 @@
 app.controller( 'AddController', ['TrackerService', function(TrackerService) {
-
+    
     let self = this;
     class Entries {
         constructor( entry, project, date, startTime, endTime ) {

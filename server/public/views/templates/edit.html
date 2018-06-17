@@ -1,0 +1,27 @@
+<md-dialog id="editInfo">
+    <h3 layout="row">Edit Input</h3>
+    <div layout="column">
+        <form ng-submit="vm.updateInput(vm.inputToUpdate)">
+            <div layout="row">
+                <md-input-container>
+                    <select ng-model="vm.inputToUpdate.project_id">
+                        <option selected value="null">---Select Project---</option>
+                        <option ng-repeat="project in vm.projectList.list" value="{{project.id}}">{{project.project}}</option>
+                    </select>
+                </md-input-container>
+            </div>
+            <md-input-container>
+                <input ng-init="editObject" ng-model="vm.inputToUpdate.entry" type="text">
+            </md-input-container>
+            <div layout="row">
+                <md-input-container>
+                    <input ng-model="vm.inputToUpdate.startTime" type="number" placeholder="Start Time">
+                </md-input-container>
+                <md-input-container>
+                    <input ng-model="vm.inputToUpdate.endTime" type="number" placeholder="End Time">
+                </md-input-container>
+            </div>
+                <md-button layout="row" class="md-raised" type="submit">Edit</md-button>
+        </form>
+    </div>
+</md-dialog>
