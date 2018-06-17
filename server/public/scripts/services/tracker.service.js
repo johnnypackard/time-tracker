@@ -1,8 +1,8 @@
-app.service( 'TrackerService', function( $http ) {
+app.service( 'TrackerService',  ['$http', function( $http ) {
     console.log( 'TrackerApp.Service loaded' );
     
     let self = this;
-    let projectsArray = [];
+    self.projectsArray = { list: [] };
 
     self.getProjects = function( url ) {
         console.log( 'in GET service' );
@@ -71,4 +71,4 @@ app.service( 'TrackerService', function( $http ) {
     }; // end deleteProject
 
     self.getProjects();
-});
+}]);
