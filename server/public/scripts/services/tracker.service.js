@@ -1,26 +1,23 @@
-app.service( 'TrackerService',  ['$http', '$mdDialog', '$mdToast', function( $http, $mdDialog, $mdToast ) {
-    console.log( 'TrackerService loaded' );
+app.service( 'TrackerService', function( $http ) {
+    console.log( 'TrackerApp.Service loaded' );
     
     let self = this;
-    self.projectsArray = { list: [] };
-    self.fullTable = { list: [] };
-    self.editObject = { list: [] };
+    let projectsArray = [];
 
-    // GET for /manage
-    self.getProjects = function() {
+    self.getProjects = function( url ) {
         console.log( 'in GET service' );
-        $http({
+        return $http({
             method: 'GET',
-            url: ('/manage')
+            url: `/${url}`
         }).then( ( response ) => {
             console.log( response );
-            self.projectsArray.list = response.data;
+            console.log( `${url}` );
+            self.projectsArray = response.data;
         }).catch( ( error ) => {
             console.log( 'error in getProjects:', error );
-        })
-    } // end GET for /manage
+        });
+    };
 
-    // POST for /add
     self.postEntry = function( url ) {
         return $http({
             method: 'POST',
@@ -74,4 +71,4 @@ app.service( 'TrackerService',  ['$http', '$mdDialog', '$mdToast', function( $ht
     }; // end deleteProject
 
     self.getProjects();
-}]);
+});
