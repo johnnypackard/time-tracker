@@ -4,24 +4,23 @@ app.service( 'TrackerService', function( $http ) {
     let self = this;
     let projectsArray = [];
 
-    self.getProjects = function( url ) {
+    self.getProjects = function( project ) {
         console.log( 'in GET service' );
         return $http({
             method: 'GET',
-            url: `/${url}`
+            url: '/manage'
         }).then( ( response ) => {
             console.log( response );
-            console.log( `${url}` );
             self.projectsArray = response.data;
         }).catch( ( error ) => {
             console.log( 'error in getProjects:', error );
         });
     };
 
-    self.postEntry = function( url ) {
+    self.entryAdd = function( entry ) {
         return $http({
             method: 'POST',
-            url: `/${url}`,
+            url: '/add',
             data: self.newEntry
         }).then( ( response ) => {
             console.log( 'back from POST entry with:', response );
@@ -30,10 +29,10 @@ app.service( 'TrackerService', function( $http ) {
         });
     }; // end post Entry
 
-    self.postProject = function( url ) {
+    self.addProject = function( project ) {
         return $http({
             method: 'POST',
-            url: `/${url}`,
+            url: '/add',
             data: self.newProject
         }).then( ( response ) => {
             console.log( 'back from POST project with:', response );
@@ -42,10 +41,10 @@ app.service( 'TrackerService', function( $http ) {
         });
     }; // end post Project
 
-    self.updateProject = function( url ) {
+    self.updateProject = function( project ) {
         return $http({
             method: 'PUT',
-            url: `/${url}`,
+            url: '/add',
             data: self.req.params
         }).then( ( response ) => {
             console.log( 'back from POST with:', req.params );
@@ -54,7 +53,7 @@ app.service( 'TrackerService', function( $http ) {
         }); 
     };// end updateProject
 
-    self.deleteProject = function( url ) {
+    self.deleteProject = function( project ) {
         console.log( 'Deleting this project' );
         console.log( deleteProject );
         if ( confirm( 'Do you want to delete this project?' ) ) {
@@ -70,5 +69,6 @@ app.service( 'TrackerService', function( $http ) {
         
     }; // end deleteProject
 
-    self.getProjects();
+    self.addProject();
+    self.entryAdd();
 });

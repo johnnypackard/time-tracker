@@ -2,8 +2,8 @@
 <h2>Add Project</h2>
 <div ng-controller="ManageController as mc">
     <form ng-submit="mc.projectManager()">
-        <input type="text" ng-model="mc.addNewProject">
-        <input type="number" ng-model="mc.addProjectAllotedTime">
+        <input type="text" placeholder="Project" ng-model="mc.addNewProject">
+        <input type="number" placeholder="Actual Hours" ng-model="mc.actualHours">
         <input type="submit"/>
     </form>
     <div>
@@ -13,14 +13,10 @@
                 <td>Project</td>
                 <td>Total Projected Hours</td>
                 <td>Actual Total Hours</td>
-                <td>Time Variance</td>
-                <td>Actions</td>
             </thead>
             <tr ng-repeat="project in mc.projects">
                 <td>{{project.project_id}}</td>
-                <td>{{project.projected_hours}}</td>
-                <td>{{project.actual_time}}</td>
-                <td>{{project.time_variance}}</td>
+                <td>{{project.hours_id}}</td>
                 <td><button ng-click="mc.deleteProject(project)">Delete</button></td>
             </tr>
         </table>

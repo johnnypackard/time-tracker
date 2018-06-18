@@ -21,7 +21,7 @@ app.controller( 'AddController', ['TrackerService', function(TrackerService) {
     }; // end entryAdd
 
     self.displayProjects = function() {
-        TrackerService.getProjects( 'entry').then( function() {
+        TrackerService.getProjects( 'entry' ).then( function() {
             self.allProjects = TrackerService.projectsArray;
         });
     }; // end displayProjects

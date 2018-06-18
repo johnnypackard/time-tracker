@@ -24,9 +24,9 @@ router.get( '/', function( req, res ) {
 router.post( '/', ( req, res ) => {
     console.log( 'in manage.router POST ', req.body );
     let newProject = req.body;
-    const queryText = `INSERT INTO projects ("project_id", "projected_hours", "actual_time", "time_variance")
-    VALUES ($1, $2, $3, $4);`;
-    pool.query( queryText, [newProject.project_id, newProject.projected_hours, newProject.actual_time, newProject.time_variance])
+    const queryText = `INSERT INTO projects ("project_id", "hours_id")
+    VALUES ($1, $2);`;
+    pool.query( queryText, [newProject.project_id, newProject.hours_id])
     .then( ( result ) => {
         console.log( 'successfully added newProject', req.body );
         res.sendStatus( 201 )

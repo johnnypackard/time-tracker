@@ -2,18 +2,16 @@ app.controller( 'ManageController', ['TrackerService', function(TrackerService) 
 
     let self = this;
     class Project {
-        constructor( project_id, totalProjected, totalActual, totalVariance ) {
+        constructor( project_id, hours_id ) {
             this.project_id = project_id;
-            this.projected_hours = projected_hours;
-            this.actual_time = actual_time;
-            this.time_variance = time_variance;
+            this.hours_id = hours_id;
         } // end constructor 
                 // might need to change projected, actual, and variance
                 // depending on how they work with postgres
     } // end class Project
     
     self.addProject = function() {
-        let newProject = new Project( self.project_id, self.projected_hours, self.actual_time, self.time_variance );
+        let newProject = new Project( self.project_id, self.hours_id );
         TrackerService.getProjects( newProject ).then( function() {
             console.log( 'in manage.controller');
         }).catch( function( error ) {

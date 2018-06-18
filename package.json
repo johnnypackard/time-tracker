@@ -5,16 +5,8 @@
   "main": "server/server.js",
   "dependencies": {
     "angular": "^1.7.2",
-    "angular-animate": "^1.7.2",
-    "angular-aria": "^1.7.2",
-    "angular-material": "^1.1.9",
-    "angular-messages": "^1.7.2",
-    "angular-route": "^1.7.2",
-    "angular-service": "^3.1.1",
     "body-parser": "^1.18.3",
-    "chart.js": "^2.7.2",
     "express": "^4.16.3",
-    "moment": "^2.22.2",
     "node": "^10.4.1",
     "pg": "^7.4.3"
   },
